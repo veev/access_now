@@ -12,40 +12,9 @@ const StorySection = (props) => {
   //   wrapperClasses.push('hide')
   // }
 
-  const description = (value) => {
-    switch (value) {
-      case 'business':
-        return <div>
-          <p>Business Story Content Here</p>
-        </div>;
-      case 'healthcare':
-        return <div>
-          <p>Healthcare Story Content Here</p>
-        </div>;
-      case 'humanitarian':
-        return <div>
-          <p>Humanitarian Aid Story Content Here</p>
-        </div>;
-      case 'education':
-        return <div>
-          <p>Education Story Content Here</p>
-        </div>;
-      case 'psychology':
-        return <div>
-          <p>Psychology Story Content Here</p>
-        </div>;
-      case 'journalism':
-        return <div>
-          <p>Journalism Story Content Here</p>
-        </div>;
-      case 'freedom':
-        return <div>
-          <p>Freedom of Expression Story Content Here</p>
-        </div>;
-      default:
-        return null;
+  const description = () => {
+    
   }
-}
 
   const incidentsLayer = () => {
     return (
@@ -73,7 +42,7 @@ const StorySection = (props) => {
 
   return (
       <div className='info'>
-        
+        <p>{stories && stories[selectedStory].text}</p>
       </div>
   )
 

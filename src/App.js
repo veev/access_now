@@ -49,7 +49,7 @@ class App extends Component {
         throw Error(storyResponse.statusText);
       }
       const storyJson = await storyResponse.json();
-      this.setState({ stories: this.makeObject(storyJson) });
+      this.setState({ stories: this.makeStoryObject(storyJson) });
     } catch (error) {
       console.log(error);
     }
@@ -76,11 +76,13 @@ class App extends Component {
 
   makeStoryObject = (data) => {
     const formatted = this.makeObject(data)
-    console.log(formatted)
-
+    // console.log(formatted)
     const storyObject = formatted.reduce( (obj, story, i) => {
-
+      // console.log(story)
+      obj[story.category] = story
+      return obj
     }, {})
+    return storyObject
   }
 
   handleStoryChange = (newStory) => {
